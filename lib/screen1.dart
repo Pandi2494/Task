@@ -39,7 +39,7 @@ class _Screen1State extends State<Screen1> {
                 height: 200,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('1.jpg'), fit: BoxFit.cover),
+                      image: AssetImage('assets/1.jpg'), fit: BoxFit.cover),
                 ),
               ),
               service_container(),

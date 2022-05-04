@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 class CustomText extends StatelessWidget {
   const CustomText({Key? key, required this.text, this.textstyle})
@@ -166,6 +167,63 @@ class BottomBar extends StatelessWidget {
                   ),
             ),
           )
+        ],
+      ),
+    );
+  }
+}
+
+class CustomDottedLine extends StatelessWidget {
+  const CustomDottedLine({Key? key, required this.text, this.textstyle})
+      : super(key: key);
+  final String text;
+  final TextStyle? textstyle;
+  @override
+  Widget build(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
+    return Padding(
+      padding: const EdgeInsets.only(left: 5, right: 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(
+            Icons.cut,
+            color: Colors.amber,
+            size: 15,
+          ),
+          DottedLine(
+            dashColor: Color(0xfffcad03),
+            lineLength: _width * 0.2,
+          ),
+          SizedBox(
+            width: _width * 0.4,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  text,
+                  style: textstyle ??
+                      const TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                      ),
+                ),
+              ],
+            ),
+          ),
+          DottedLine(
+            dashColor: Color(0xfffcad03),
+            lineLength: _width * 0.2,
+          ),
+          Transform.rotate(
+            angle: 180 * math.pi / 180,
+            child: const Icon(
+              Icons.cut,
+              color: Colors.amber,
+              size: 15,
+            ),
+          ),
         ],
       ),
     );
