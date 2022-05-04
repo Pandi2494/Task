@@ -298,7 +298,10 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             const SizedBox(
-              height: 10,
+              height: 10,<<<<<<< task_corrections
+373
+ 
+
             ),
             const CustomDottedLine(
               text: 'Services',
@@ -435,6 +438,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+
             const CustomDottedLine(
               text: '103 Shops Near By You',
               textstyle: TextStyle(
