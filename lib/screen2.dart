@@ -24,6 +24,39 @@ class _HomePageState extends State<HomePage> {
     '2.jpg',
     '3.jpg',
   ];
+  bool viewall = false;
+  List card_tile_list = [
+    {
+      'image': 'assets/1.jpg',
+      'model': '0X656565',
+      'shopaddress': 'shop address',
+      'shopname': 'shop name',
+    },
+    {
+      'image': 'assets/1.jpg',
+      'model': '0X656565',
+      'shopaddress': 'shop address',
+      'shopname': 'shop name',
+    },
+    {
+      'image': 'assets/1.jpg',
+      'model': '0X656565',
+      'shopaddress': 'shop address',
+      'shopname': 'shop name',
+    },
+    {
+      'image': 'assets/1.jpg',
+      'model': '0X656565',
+      'shopaddress': 'shop address',
+      'shopname': 'shop name',
+    },
+    {
+      'image': 'assets/1.jpg',
+      'model': '0X656565',
+      'shopaddress': 'shop address',
+      'shopname': 'shop name',
+    },
+  ];
 
   late StreamController initialcontroller;
   StreamSink get initialsink => initialcontroller.sink;
@@ -265,7 +298,10 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             const SizedBox(
-              height: 10,
+              height: 10,<<<<<<< task_corrections
+373
+ 
+
             ),
             const CustomDottedLine(
               text: 'Services',
@@ -294,7 +330,7 @@ class _HomePageState extends State<HomePage> {
                             height: 80,
                             decoration: const BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage('assets/1.jpg'),
+                                  image: AssetImage('assets/6.jpg'),
                                   fit: BoxFit.cover),
                             ),
                           ),
@@ -336,7 +372,7 @@ class _HomePageState extends State<HomePage> {
                             height: 80,
                             decoration: const BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage('assets/2.jpg'),
+                                  image: AssetImage('assets/7.jpg'),
                                   fit: BoxFit.cover),
                             ),
                           ),
@@ -380,23 +416,29 @@ class _HomePageState extends State<HomePage> {
               height: 140,
               child: ListView.builder(
                   // scrollDirection: Axis.vertical,
-                  itemCount: 2,
+                  itemCount: card_tile_list.length,
                   itemBuilder: (BuildContext context, int index) =>
-                      card_tile()),
+                      card_tile(index)),
             ),
             //  ,
             // card_tile(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextButton(
-                    onPressed: () {},
-                    child: const CustomText(
-                      text: 'View all',
-                      textstyle: TextStyle(color: Colors.blue, fontSize: 14),
-                    ))
-              ],
+            Padding(
+              padding: const EdgeInsets.only(right: 5, left: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        viewall = true;
+                      },
+                      child: const CustomText(
+                        text: 'View all',
+                        textstyle: TextStyle(color: Colors.blue, fontSize: 12),
+                      ))
+                ],
+              ),
             ),
+
             const CustomDottedLine(
               text: '103 Shops Near By You',
               textstyle: TextStyle(
@@ -518,7 +560,14 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 10,
             ),
-            card_tile(),
+            SizedBox(
+              height: 60,
+              child: ListView.builder(
+                  // scrollDirection: Axis.vertical,
+                  itemCount: card_tile_list.length,
+                  itemBuilder: (BuildContext context, int index) =>
+                      card_tile(index)),
+            ),
           ],
         ),
       ),
@@ -696,7 +745,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Padding card_tile() {
+  Padding card_tile(index) {
     return Padding(
       padding: const EdgeInsets.only(
         left: 10,
@@ -709,7 +758,8 @@ class _HomePageState extends State<HomePage> {
                 Radius.circular(5.0)), //add border radius here
             child: SizedBox(
                 height: 40,
-                child: Image.asset('assets/3.jpg')), //add image location here
+                child: Image.asset(card_tile_list[index]['image']
+                    .toString())), //add image location here
           ),
           title: const Padding(
             padding: EdgeInsets.only(top: 8),

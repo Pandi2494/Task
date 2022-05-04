@@ -182,7 +182,7 @@ class CustomDottedLine extends StatelessWidget {
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10),
+      padding: const EdgeInsets.only(left: 5, right: 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
